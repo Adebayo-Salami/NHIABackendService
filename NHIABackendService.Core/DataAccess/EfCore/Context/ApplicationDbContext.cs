@@ -1,15 +1,9 @@
-﻿using Microsoft.AspNetCore.Authentication;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
 using NHIABackendService.Entities;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NHIABackendService.Core.DataAccess.EfCore.Context
 {
@@ -23,7 +17,7 @@ namespace NHIABackendService.Core.DataAccess.EfCore.Context
         public DbSet<FileUpload> FileUploads { get; set; }
 
         //Custom DbSets Added Below
-        #region Custom DbSets
+        #region Add DbSets
         #endregion
 
         protected override void OnModelCreating(ModelBuilder builder)
