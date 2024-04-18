@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
 using NHIABackendService.Core.Configuration;
+using NHIABackendService.Core.DataAccess.EfCore.Context;
+using NHIABackendService.Entities;
 using OpenIddict.Abstractions;
 
 namespace NHIABackendService
@@ -32,20 +34,20 @@ namespace NHIABackendService
 
         public void ConfigureIdentity(IServiceCollection services)
         {
-            //services.AddIdentity<User, Role>(options =>
-            //{
-            //    options.Password.RequireDigit = false;
-            //    options.Password.RequireLowercase = false;
-            //    options.Password.RequireUppercase = false;
-            //    options.Password.RequireNonAlphanumeric = false;
-            //    options.Password.RequiredLength = 6;
+            services.AddIdentity<User, Role>(options =>
+            {
+                options.Password.RequireDigit = false;
+                options.Password.RequireLowercase = false;
+                options.Password.RequireUppercase = false;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequiredLength = 6;
 
-            //    options.Lockout.AllowedForNewUsers = true;
-            //    options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(10);
-            //    options.Lockout.MaxFailedAccessAttempts = 3;
-            //})
-            //    .AddEntityFrameworkStores<ApplicationDbContext>()
-            //    .AddDefaultTokenProviders();
+                options.Lockout.AllowedForNewUsers = true;
+                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(10);
+                options.Lockout.MaxFailedAccessAttempts = 3;
+            })
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddDefaultTokenProviders();
 
             services.Configure<DataProtectionTokenProviderOptions>(options =>
             {

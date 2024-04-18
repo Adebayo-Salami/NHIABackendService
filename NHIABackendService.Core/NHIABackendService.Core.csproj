@@ -40,8 +40,4 @@
     <ProjectReference Include="..\NHIABackendService.Entities\NHIABackendService.Entities.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="AspnetCore\Policy\" />
-  </ItemGroup>
-
 </Project>

@@ -228,3 +228,4 @@ C:\Users\osalami\Documents\Work\NHIA\NHIABackendService\NHIABackendService\bin\D
 C:\Users\osalami\Documents\Work\NHIA\NHIABackendService\NHIABackendService\bin\Debug\net8.0\NHIABackendService.Services.pdb
 C:\Users\osalami\Documents\Work\NHIA\NHIABackendService\NHIABackendService\bin\Debug\net8.0\NHIABackendService.Entities.pdb
 C:\Users\osalami\Documents\Work\NHIA\NHIABackendService\NHIABackendService\obj\Debug\net8.0\NHIABackendService.sourcelink.json
+C:\Users\osalami\Documents\Work\NHIA\NHIABackendService\NHIABackendService\bin\Debug\net8.0\log4net.config
