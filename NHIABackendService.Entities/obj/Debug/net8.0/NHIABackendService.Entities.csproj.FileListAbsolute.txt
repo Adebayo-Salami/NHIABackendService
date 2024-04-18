@@ -1,0 +1,12 @@
+C:\Users\osalami\Documents\Work\NHIA\NHIABackendService\NHIABackendService.Entities\bin\Debug\net8.0\NHIABackendService.Entities.deps.json
+C:\Users\osalami\Documents\Work\NHIA\NHIABackendService\NHIABackendService.Entities\bin\Debug\net8.0\NHIABackendService.Entities.dll
+C:\Users\osalami\Documents\Work\NHIA\NHIABackendService\NHIABackendService.Entities\bin\Debug\net8.0\NHIABackendService.Entities.pdb
+C:\Users\osalami\Documents\Work\NHIA\NHIABackendService\NHIABackendService.Entities\obj\Debug\net8.0\NHIABackendService.Entities.csproj.AssemblyReference.cache
+C:\Users\osalami\Documents\Work\NHIA\NHIABackendService\NHIABackendService.Entities\obj\Debug\net8.0\NHIABackendService.Entities.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\osalami\Documents\Work\NHIA\NHIABackendService\NHIABackendService.Entities\obj\Debug\net8.0\NHIABackendService.Entities.AssemblyInfoInputs.cache
+C:\Users\osalami\Documents\Work\NHIA\NHIABackendService\NHIABackendService.Entities\obj\Debug\net8.0\NHIABackendService.Entities.AssemblyInfo.cs
+C:\Users\osalami\Documents\Work\NHIA\NHIABackendService\NHIABackendService.Entities\obj\Debug\net8.0\NHIABackendService.Entities.csproj.CoreCompileInputs.cache
+C:\Users\osalami\Documents\Work\NHIA\NHIABackendService\NHIABackendService.Entities\obj\Debug\net8.0\NHIABackendService.Entities.dll
+C:\Users\osalami\Documents\Work\NHIA\NHIABackendService\NHIABackendService.Entities\obj\Debug\net8.0\refint\NHIABackendService.Entities.dll
+C:\Users\osalami\Documents\Work\NHIA\NHIABackendService\NHIABackendService.Entities\obj\Debug\net8.0\NHIABackendService.Entities.pdb
+C:\Users\osalami\Documents\Work\NHIA\NHIABackendService\NHIABackendService.Entities\obj\Debug\net8.0\ref\NHIABackendService.Entities.dll

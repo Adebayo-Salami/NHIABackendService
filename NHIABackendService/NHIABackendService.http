@@ -1,0 +1,6 @@
+@NHIABackendService_HostAddress = http://localhost:5064
+
+GET {{NHIABackendService_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
