@@ -62,6 +62,7 @@ namespace NHIABackendService.Controllers
         {
             try
             {
+                request.GrantType = "password";
                 if (request.IsPasswordGrantType())
                 {
                     var user = await _userManager.FindByEmailAsync(request.Username);
