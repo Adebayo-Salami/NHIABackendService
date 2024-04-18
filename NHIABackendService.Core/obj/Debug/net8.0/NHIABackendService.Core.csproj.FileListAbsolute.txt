@@ -12,3 +12,7 @@ C:\Users\osalami\Documents\Work\NHIA\NHIABackendService\NHIABackendService.Core\
 C:\Users\osalami\Documents\Work\NHIA\NHIABackendService\NHIABackendService.Core\obj\Debug\net8.0\NHIABackendService.Core.pdb
 C:\Users\osalami\Documents\Work\NHIA\NHIABackendService\NHIABackendService.Core\obj\Debug\net8.0\NHIABackendService.Core.genruntimeconfig.cache
 C:\Users\osalami\Documents\Work\NHIA\NHIABackendService\NHIABackendService.Core\obj\Debug\net8.0\ref\NHIABackendService.Core.dll
+C:\Users\osalami\Documents\Work\NHIA\NHIABackendService\NHIABackendService.Core\bin\Debug\net8.0\NHIABackendService.Entities.dll
+C:\Users\osalami\Documents\Work\NHIA\NHIABackendService\NHIABackendService.Core\bin\Debug\net8.0\NHIABackendService.Entities.pdb
+C:\Users\osalami\Documents\Work\NHIA\NHIABackendService\NHIABackendService.Core\obj\Debug\net8.0\NHIABackendService.Core.sourcelink.json
+C:\Users\osalami\Documents\Work\NHIA\NHIABackendService\NHIABackendService.Core\obj\Debug\net8.0\NHIABack.8666AA11.Up2Date

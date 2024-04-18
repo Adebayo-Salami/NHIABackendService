@@ -79,7 +79,7 @@
             },
             "Microsoft.AspNetCore.Http": {
               "target": "Package",
-              "version": "[2.1.34, )"
+              "version": "[2.1.22, )"
             },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",

@@ -79,7 +79,7 @@
             },
             "Microsoft.AspNetCore.Http": {
               "target": "Package",
-              "version": "[2.1.34, )"
+              "version": "[2.1.22, )"
             },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
@@ -296,9 +296,9 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
-            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+            "AutoMapper": {
               "target": "Package",
-              "version": "[8.1.1, )"
+              "version": "[13.0.1, )"
             }
           },
           "imports": [
@@ -377,10 +377,6 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
-            "AspNet.Security.OpenIdConnect.Primitives": {
-              "target": "Package",
-              "version": "[2.0.0, )"
-            },
             "CsvHelper": {
               "target": "Package",
               "version": "[31.0.4, )"
@@ -399,11 +395,19 @@
               "target": "Package",
               "version": "[8.0.0, )"
             },
+            "OpenIddict.AspNetCore": {
+              "target": "Package",
+              "version": "[5.4.0, )"
+            },
             "OpenIddict.Core": {
               "target": "Package",
               "version": "[5.4.0, )"
             },
             "OpenIddict.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.4.0, )"
+            },
+            "OpenIddict.EntityFrameworkCore.Models": {
               "target": "Package",
               "version": "[5.4.0, )"
             },
@@ -417,7 +421,7 @@
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[6.4.0, )"
+              "version": "[6.5.0, )"
             },
             "Swashbuckle.AspNetCore.Swagger": {
               "target": "Package",

@@ -15,3 +15,4 @@ C:\Users\osalami\Documents\Work\NHIA\NHIABackendService\NHIABackendService.Servi
 C:\Users\osalami\Documents\Work\NHIA\NHIABackendService\NHIABackendService.Services\bin\Debug\net8.0\NHIABackendService.Core.pdb
 C:\Users\osalami\Documents\Work\NHIA\NHIABackendService\NHIABackendService.Services\bin\Debug\net8.0\NHIABackendService.Entities.pdb
 C:\Users\osalami\Documents\Work\NHIA\NHIABackendService\NHIABackendService.Services\obj\Debug\net8.0\NHIABack.FD31F720.Up2Date
+C:\Users\osalami\Documents\Work\NHIA\NHIABackendService\NHIABackendService.Services\obj\Debug\net8.0\NHIABackendService.Services.sourcelink.json

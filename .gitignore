@@ -354,3 +354,11 @@ appsettings.Development.json
 /.vs/NHIABackendService/FileContentIndex/bfc063d6-5e46-4e76-848f-b67eb8438b11.vsidx
 /.vs/NHIABackendService/FileContentIndex/cea7dc8e-8851-4430-b1ce-9d808e66f8c7.vsidx
 /.vs/NHIABackendService/FileContentIndex/fe98cad4-79fc-46c3-aa48-a8d57f032680.vsidx
+/.vs/NHIABackendService/bin/
+/.vs/NHIABackendService/obj/
+/.vs/NHIABackendService.Core/bin/
+/.vs/NHIABackendService.Core/obj/
+/.vs/NHIABackendService.Service/bin/
+/.vs/NHIABackendService.Service/obj/
+/.vs/NHIABackendService.Test/bin/
+/.vs/NHIABackendService.Test/obj/

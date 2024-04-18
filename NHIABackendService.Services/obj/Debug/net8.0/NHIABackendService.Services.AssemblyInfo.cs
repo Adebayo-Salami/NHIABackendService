@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("NHIABackendService.Services")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+307149b61f2d46fe604a307a5c8165005987aaef")]
 [assembly: System.Reflection.AssemblyProductAttribute("NHIABackendService.Services")]
 [assembly: System.Reflection.AssemblyTitleAttribute("NHIABackendService.Services")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

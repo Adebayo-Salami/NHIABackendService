@@ -13,7 +13,7 @@
           "Microsoft.AspNet.WebApi.Client": "6.0.0",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "8.0.4",
           "Microsoft.AspNetCore.Authorization": "8.0.4",
-          "Microsoft.AspNetCore.Http": "2.1.34",
+          "Microsoft.AspNetCore.Http": "2.1.22",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "8.0.4",
           "Microsoft.EntityFrameworkCore": "8.0.4",
           "Microsoft.EntityFrameworkCore.Design": "8.0.4",
@@ -23,6 +23,7 @@
           "Microsoft.Extensions.Configuration.Json": "8.0.0",
           "Microsoft.Graph": "5.49.0",
           "Microsoft.Identity.Client": "4.60.3",
+          "NHIABackendService.Entities": "1.0.0",
           "NPOI": "2.7.0",
           "OpenIddict.EntityFrameworkCore": "5.4.0",
           "RestSharp": "110.2.0",
@@ -192,7 +193,7 @@
           }
         }
       },
-      "Microsoft.AspNetCore.Http/2.1.34": {
+      "Microsoft.AspNetCore.Http/2.1.22": {
         "dependencies": {
           "Microsoft.AspNetCore.Http.Abstractions": "2.1.1",
           "Microsoft.AspNetCore.WebUtilities": "2.1.1",
@@ -1458,6 +1459,14 @@
             "fileVersion": "1.0.4.0"
           }
         }
+      },
+      "NHIABackendService.Entities/1.0.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "8.0.4"
+        },
+        "runtime": {
+          "NHIABackendService.Entities.dll": {}
+        }
       }
     }
   },
@@ -1572,12 +1581,12 @@
       "path": "microsoft.aspnetcore.cryptography.keyderivation/8.0.4",
       "hashPath": "microsoft.aspnetcore.cryptography.keyderivation.8.0.4.nupkg.sha512"
     },
-    "Microsoft.AspNetCore.Http/2.1.34": {
+    "Microsoft.AspNetCore.Http/2.1.22": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-d1U34fyniRrDW0SD7KryDhXq1KWEjeE1XuLgk/qcdFHUjkjY6XztmhEmQJicGlPYKEZOe+3UMWz5EZChLwnrvQ==",
-      "path": "microsoft.aspnetcore.http/2.1.34",
-      "hashPath": "microsoft.aspnetcore.http.2.1.34.nupkg.sha512"
+      "sha512": "sha512-+Blk++1JWqghbl8+3azQmKhiNZA5wAepL9dY2I6KVmu2Ri07MAcvAVC888qUvO7yd7xgRgZOMfihezKg14O/2A==",
+      "path": "microsoft.aspnetcore.http/2.1.22",
+      "hashPath": "microsoft.aspnetcore.http.2.1.22.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Http.Abstractions/2.1.1": {
       "type": "package",
@@ -2383,6 +2392,11 @@
       "sha512": "sha512-SKJj7zt2OuWFUnOdIFlECDKexWJDxB8aEYvZHH6XhY7CDBWinnYGj2cianT7h0hqvlFvBhRQQVV470eyU37kOA==",
       "path": "valuegetter/1.0.4",
       "hashPath": "valuegetter.1.0.4.nupkg.sha512"
+    },
+    "NHIABackendService.Entities/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }

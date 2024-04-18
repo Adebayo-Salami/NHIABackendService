@@ -238,7 +238,7 @@
           }
         }
       },
-      "Microsoft.AspNetCore.Http/2.1.34": {
+      "Microsoft.AspNetCore.Http/2.1.22": {
         "type": "package",
         "dependencies": {
           "Microsoft.AspNetCore.Http.Abstractions": "2.1.1",
@@ -2790,16 +2790,16 @@
         "microsoft.aspnetcore.cryptography.keyderivation.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Http/2.1.34": {
-      "sha512": "d1U34fyniRrDW0SD7KryDhXq1KWEjeE1XuLgk/qcdFHUjkjY6XztmhEmQJicGlPYKEZOe+3UMWz5EZChLwnrvQ==",
+    "Microsoft.AspNetCore.Http/2.1.22": {
+      "sha512": "+Blk++1JWqghbl8+3azQmKhiNZA5wAepL9dY2I6KVmu2Ri07MAcvAVC888qUvO7yd7xgRgZOMfihezKg14O/2A==",
       "type": "package",
-      "path": "microsoft.aspnetcore.http/2.1.34",
+      "path": "microsoft.aspnetcore.http/2.1.22",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "lib/netstandard2.0/Microsoft.AspNetCore.Http.dll",
         "lib/netstandard2.0/Microsoft.AspNetCore.Http.xml",
-        "microsoft.aspnetcore.http.2.1.34.nupkg.sha512",
+        "microsoft.aspnetcore.http.2.1.22.nupkg.sha512",
         "microsoft.aspnetcore.http.nuspec"
       ]
     },
@@ -6245,7 +6245,7 @@
       "Microsoft.AspNet.WebApi.Client >= 6.0.0",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 8.0.4",
       "Microsoft.AspNetCore.Authorization >= 8.0.4",
-      "Microsoft.AspNetCore.Http >= 2.1.34",
+      "Microsoft.AspNetCore.Http >= 2.1.22",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 8.0.4",
       "Microsoft.EntityFrameworkCore >= 8.0.4",
       "Microsoft.EntityFrameworkCore.Design >= 8.0.4",
@@ -6345,7 +6345,7 @@
           },
           "Microsoft.AspNetCore.Http": {
             "target": "Package",
-            "version": "[2.1.34, )"
+            "version": "[2.1.22, )"
           },
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
             "target": "Package",
