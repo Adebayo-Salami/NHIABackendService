@@ -1,5 +1,8 @@
-﻿using System.Text;
+﻿using System.IdentityModel.Tokens.Jwt;
+using System.Text;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using NHIABackendService.Core.Configuration;
 using NHIABackendService.Core.DataAccess.EfCore.Context;
@@ -30,6 +33,66 @@ namespace NHIABackendService
                 options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(10);
                 options.Lockout.MaxFailedAccessAttempts = 3;
             });
+
+            services.AddOpenIddict()
+                .AddCore(options =>
+                {
+                    options.UseEntityFrameworkCore()
+                        .UseDbContext<ApplicationDbContext>();
+                })
+                .AddServer(options =>
+                {
+                    options.RegisterScopes(OpenIddictConstants.Scopes.Email,
+                        OpenIddictConstants.Scopes.Profile,
+                        OpenIddictConstants.Scopes.Address,
+                        OpenIddictConstants.Scopes.Phone,
+                        OpenIddictConstants.Scopes.Roles,
+                        OpenIddictConstants.Scopes.OfflineAccess,
+                        OpenIddictConstants.Scopes.OpenId
+                    );
+
+                    options
+#if DEBUG
+                        .SetAccessTokenLifetime(TimeSpan.FromMinutes(720)) // 12 hours
+                        .SetIdentityTokenLifetime(TimeSpan.FromMinutes(720)) // 12 hours
+                        .SetRefreshTokenLifetime(TimeSpan.FromMinutes(720)); // 12 hours
+#else
+                        .SetAccessTokenLifetime(TimeSpan.FromMinutes(60))
+                        .SetIdentityTokenLifetime(TimeSpan.FromMinutes(60))
+                        .SetRefreshTokenLifetime(TimeSpan.FromMinutes(120));
+#endif
+                });
+
+            JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
+            JwtSecurityTokenHandler.DefaultOutboundClaimTypeMap.Clear();
+            services.AddAuthentication(x =>
+            {
+                x.DefaultAuthenticateScheme = OpenIddictConstants.Schemes.Bearer;
+                x.DefaultChallengeScheme = OpenIddictConstants.Schemes.Bearer;
+            }).AddJwtBearer("Bearer", options =>
+            {
+                options.Authority = options.Authority = authSettings.Authority;
+                options.RequireHttpsMetadata = authSettings.RequireHttps;
+
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    NameClaimType = OpenIddictConstants.Claims.Name,
+                    RoleClaimType = OpenIddictConstants.Claims.Role,
+                    IssuerSigningKey = signingKey,
+                    ValidateAudience = false,
+                    ValidateIssuer = false
+                };
+
+                options.Events = new JwtBearerEvents
+                {
+                    OnAuthenticationFailed = context =>
+                    {
+                        if (context.Exception.GetType() == typeof(SecurityTokenExpiredException))
+                            context.Response.Headers.Add("Token-Expired", "true");
+                        return Task.CompletedTask;
+                    }
+                };
+            });
         }
 
         public void ConfigureIdentity(IServiceCollection services)
@@ -45,9 +108,7 @@ namespace NHIABackendService
                 options.Lockout.AllowedForNewUsers = true;
                 options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(10);
                 options.Lockout.MaxFailedAccessAttempts = 3;
-            })
-                .AddEntityFrameworkStores<ApplicationDbContext>()
-                .AddDefaultTokenProviders();
+            }).AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();
 
             services.Configure<DataProtectionTokenProviderOptions>(options =>
             {

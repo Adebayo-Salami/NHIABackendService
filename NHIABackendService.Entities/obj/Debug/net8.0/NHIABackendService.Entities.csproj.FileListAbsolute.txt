@@ -6,8 +6,8 @@ C:\Users\osalami\Documents\Work\NHIA\NHIABackendService\NHIABackendService.Entit
 C:\Users\osalami\Documents\Work\NHIA\NHIABackendService\NHIABackendService.Entities\obj\Debug\net8.0\NHIABackendService.Entities.AssemblyInfoInputs.cache
 C:\Users\osalami\Documents\Work\NHIA\NHIABackendService\NHIABackendService.Entities\obj\Debug\net8.0\NHIABackendService.Entities.AssemblyInfo.cs
 C:\Users\osalami\Documents\Work\NHIA\NHIABackendService\NHIABackendService.Entities\obj\Debug\net8.0\NHIABackendService.Entities.csproj.CoreCompileInputs.cache
+C:\Users\osalami\Documents\Work\NHIA\NHIABackendService\NHIABackendService.Entities\obj\Debug\net8.0\NHIABackendService.Entities.sourcelink.json
 C:\Users\osalami\Documents\Work\NHIA\NHIABackendService\NHIABackendService.Entities\obj\Debug\net8.0\NHIABackendService.Entities.dll
 C:\Users\osalami\Documents\Work\NHIA\NHIABackendService\NHIABackendService.Entities\obj\Debug\net8.0\refint\NHIABackendService.Entities.dll
 C:\Users\osalami\Documents\Work\NHIA\NHIABackendService\NHIABackendService.Entities\obj\Debug\net8.0\NHIABackendService.Entities.pdb
 C:\Users\osalami\Documents\Work\NHIA\NHIABackendService\NHIABackendService.Entities\obj\Debug\net8.0\ref\NHIABackendService.Entities.dll
-C:\Users\osalami\Documents\Work\NHIA\NHIABackendService\NHIABackendService.Entities\obj\Debug\net8.0\NHIABackendService.Entities.sourcelink.json
