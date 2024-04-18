@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.FileProviders;
 using NHIABackendService.Core.AspnetCore;
 using NHIABackendService.Core.Caching;
 using NHIABackendService.Core.DataAccess.EfCore;
@@ -27,6 +28,7 @@ namespace NHIABackendService
             services.AddScoped<IHttpUserService, HttpUserService>();
             services.AddScoped<IHttpUserService, HttpUserService>();
             services.AddScoped<IAuthorizationHandler, PermissionAuthorizationHandler>();
+            services.AddSingleton<IFileProvider>(new PhysicalFileProvider(Path.Combine(HostingEnvironment.ContentRootPath, Configuration.GetValue<string>("PhysicalFilePath"))));
             services.AddSingleton<ICacheManager, MemoryCacheManager>();
             services.AddScoped<IBaseRequestService, BaseRequestService>();
             services.AddScoped<IFileStorageService, FileStorageService>();

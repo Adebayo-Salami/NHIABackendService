@@ -5,6 +5,11 @@ using NHIABackendService.Core.Collections;
 using NHIABackendService.Utility;
 using NHIABackendService.Services.Model;
 using NHIABackendService.Core.DataAccess.EfCore.Context;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using Newtonsoft.Json;
+using Microsoft.AspNetCore.Authentication;
+using NHIABackendService.Core.Permissions;
 
 #nullable disable
 
@@ -45,6 +50,43 @@ namespace NHIABackendService
                 defaultAuthorizationPolicyBuilder = defaultAuthorizationPolicyBuilder.RequireAuthenticatedUser();
                 options.DefaultPolicy = defaultAuthorizationPolicyBuilder.Build();
             });
+
+            services
+            .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+            .AddJwtBearer(options =>
+            {
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(Configuration["JWTSecretKey"] ?? Configuration.GetSection("AppSettings:JWTSecretKey").Value)),
+                    ValidateIssuer = false,
+                    ValidateAudience = false
+                };
+            });
+
+            services.AddHealthChecks().AddAsyncCheck("Http", async () =>
+            {
+                using (HttpClient client = new HttpClient())
+                {
+                    try
+                    {
+                        string appSwaggerUrl = Configuration.GetConnectionString("NHIABackendService");
+                        var response = await client.GetAsync(appSwaggerUrl);
+
+                        if (!response.IsSuccessStatusCode)
+                        {
+                            throw new Exception("Url not responding with 200 OK");
+                        }
+                    }
+                    catch (Exception)
+                    {
+                        return await Task.FromResult(Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckResult.Unhealthy());
+                    }
+                }
+
+                return await Task.FromResult(Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckResult.Healthy());
+            });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -53,6 +95,7 @@ namespace NHIABackendService
             if (env.IsDevelopment()) app.UseDeveloperExceptionPage();
 
             app.UseRouting();
+            app.UseMiddleware<AuthenticationHandler>();
             app.UseAuthentication();
             app.UseAuthorization();
 
