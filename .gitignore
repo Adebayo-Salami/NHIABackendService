@@ -362,3 +362,11 @@ appsettings.Development.json
 /.vs/NHIABackendService.Service/obj/
 /.vs/NHIABackendService.Test/bin/
 /.vs/NHIABackendService.Test/obj/
+.vs/NHIABackendService/bin/
+.vs/NHIABackendService/obj/
+.vs/NHIABackendService.Core/bin/
+.vs/NHIABackendService.Core/obj/
+.vs/NHIABackendService.Service/bin/
+.vs/NHIABackendService.Service/obj/
+.vs/NHIABackendService.Test/bin/
+.vs/NHIABackendService.Test/obj/

@@ -10,3 +10,4 @@ C:\Users\osalami\Documents\Work\NHIA\NHIABackendService\NHIABackendService.Entit
 C:\Users\osalami\Documents\Work\NHIA\NHIABackendService\NHIABackendService.Entities\obj\Debug\net8.0\refint\NHIABackendService.Entities.dll
 C:\Users\osalami\Documents\Work\NHIA\NHIABackendService\NHIABackendService.Entities\obj\Debug\net8.0\NHIABackendService.Entities.pdb
 C:\Users\osalami\Documents\Work\NHIA\NHIABackendService\NHIABackendService.Entities\obj\Debug\net8.0\ref\NHIABackendService.Entities.dll
+C:\Users\osalami\Documents\Work\NHIA\NHIABackendService\NHIABackendService.Entities\obj\Debug\net8.0\NHIABackendService.Entities.sourcelink.json
