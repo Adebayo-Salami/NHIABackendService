@@ -389,3 +389,11 @@ appsettings.Development.json
 .vs/NHIABackendService.Test/obj
 /.vs/NHIABackendService/v17/DocumentLayout.json
 /NHIABackendService.Entities/obj/Debug/net8.0/NHIABackendService.Entities.AssemblyInfo.cs
+/NHIABackendService.Entities/obj/
+/NHIABackendService.Entities/bin/
+/NHIABackendService.Core/obj/
+/NHIABackendService.Core/bin/
+/NHIABackendService.Service/obj/
+/NHIABackendService.Service/bin/
+/NHIABackendService.Test/obj/
+/NHIABackendService.Test/bin/
