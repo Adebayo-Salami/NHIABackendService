@@ -22,9 +22,9 @@ namespace NHIABackendService.Core.Extensions
             return newValue;
         }
 
-        public static string ToDateString(this DateTime dt, string format)
+        public static string ToDateString(this DateTime date, string format)
         {
-            return dt.ToString(format, DateTimeFormatInfo.InvariantInfo);
+            return date.ToString(format, DateTimeFormatInfo.InvariantInfo);
         }
     }
 }

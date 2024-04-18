@@ -33,6 +33,13 @@ namespace NHIABackendService
             services.AddScoped<IBaseRequestService, BaseRequestService>();
             services.AddScoped<IFileStorageService, FileStorageService>();
             services.AddTransient<IFileService, FileService>();
+            services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IRoleService, RoleService>();
+
+            services.AddMvc(options =>
+            {
+                options.ModelBinderProviders.Insert(0, new OpenIddictRequestModelBinderProvider());
+            });
 
             services.AddScoped<IDbConnection>(db =>
             {
