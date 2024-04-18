@@ -83,14 +83,14 @@ namespace NHIABackendService.Controllers
                         });
                     }
                     // Ensure the user is allowed to sign in.
-                    if (!await _signInManager.CanSignInAsync(user))       //Commented out till we confirm if we are making use of email and phone number confirmation... this method requires that to return true
-                    {
-                        return BadRequest(new OpenIddictResponse
-                        {
-                            Error = OpenIddictConstants.Errors.AccessDenied,
-                            ErrorDescription = "You are not allowed to sign in."
-                        });
-                    }
+                    //if (!await _signInManager.CanSignInAsync(user))       //Commented out till we confirm if we are making use of email and phone number confirmation... this method requires that to return true
+                    //{
+                    //    return BadRequest(new OpenIddictResponse
+                    //    {
+                    //        Error = OpenIddictConstants.Errors.AccessDenied,
+                    //        ErrorDescription = "You are not allowed to sign in."
+                    //    });
+                    //}
                     // Ensure the user is not already locked out.
                     if (_userManager.SupportsUserLockout && await _userManager.IsLockedOutAsync(user))
                     {
