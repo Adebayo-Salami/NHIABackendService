@@ -36,10 +36,10 @@ namespace NHIABackendService
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IRoleService, RoleService>();
 
-            services.AddMvc(options =>
-            {
-                options.ModelBinderProviders.Insert(0, new OpenIddictRequestModelBinderProvider());
-            });
+            //services.AddMvc(options =>
+            //{
+            //    options.ModelBinderProviders.Insert(0, new OpenIddictRequestModelBinderProvider());
+            //});
 
             services.AddScoped<IDbConnection>(db =>
             {

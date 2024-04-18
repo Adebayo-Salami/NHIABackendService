@@ -26,8 +26,8 @@ namespace NHIABackendService.Core.Permissions
         public async Task Invoke(HttpContext context)
         {
 
-            var claim = new System.Security.Claims.Claim(ClaimTypes.Name, "");
-            var claims = new List<System.Security.Claims.Claim>();
+            var claim = new Claim(ClaimTypes.Name, "");
+            var claims = new List<Claim>();
             claims.Add(claim);
             var claimsIdentity = new ClaimsIdentity(claims);
             context.User.AddIdentity(claimsIdentity);

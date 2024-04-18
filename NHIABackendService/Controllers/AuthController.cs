@@ -57,8 +57,8 @@ namespace NHIABackendService.Controllers
         }
 
         [AllowAnonymous]
-        [ProducesResponseType(typeof(ApiResponse<bool>), 200)]
-        public async Task<IActionResult> AuthenticateUser([ModelBinder(BinderType = typeof(OpenIddictRequestModelBinder))] OpenIddictRequest request)
+        [HttpPost("~/api/connect/token"), Produces("application/json")]
+        public async Task<IActionResult> Token(OpenIddictRequest request)
         {
             try
             {
