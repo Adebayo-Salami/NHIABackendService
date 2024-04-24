@@ -1,4 +1,5 @@
 ﻿using System.IdentityModel.Tokens.Jwt;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
@@ -34,6 +35,10 @@ namespace NHIABackendService
                 options.Lockout.MaxFailedAccessAttempts = 3;
             });
 
+            var x509Certificate = new X509Certificate2(Path.Combine(
+                    HostingEnvironment.ContentRootPath, "NHIAAuth.pfx")
+                , "NHIABackendService", X509KeyStorageFlags.UserKeySet);
+
             services.AddOpenIddict()
                 .AddCore(options =>
                 {
@@ -51,24 +56,55 @@ namespace NHIABackendService
                         OpenIddictConstants.Scopes.OpenId
                     );
 
-                    options
+                    options.SetTokenEndpointUris("/api/connect/token")
+                        //.SetLogoutEndpointUris("connect/logout")
+                        .AllowRefreshTokenFlow()
+                        .AcceptAnonymousClients()
+                        .AllowPasswordFlow()
 #if DEBUG
                         .SetAccessTokenLifetime(TimeSpan.FromMinutes(720)) // 12 hours
                         .SetIdentityTokenLifetime(TimeSpan.FromMinutes(720)) // 12 hours
-                        .SetRefreshTokenLifetime(TimeSpan.FromMinutes(720)); // 12 hours
+                        .SetRefreshTokenLifetime(TimeSpan.FromMinutes(720)) // 12 hours
 #else
                         .SetAccessTokenLifetime(TimeSpan.FromMinutes(60))
                         .SetIdentityTokenLifetime(TimeSpan.FromMinutes(60))
-                        .SetRefreshTokenLifetime(TimeSpan.FromMinutes(120));
+                        .SetRefreshTokenLifetime(TimeSpan.FromMinutes(120))
 #endif
+                        .AddSigningCertificate(x509Certificate)
+                        .AddEncryptionCertificate(x509Certificate);
+
+                    options.UseAspNetCore()
+                       .EnableStatusCodePagesIntegration()
+                       .EnableAuthorizationEndpointPassthrough()
+                       .EnableLogoutEndpointPassthrough()
+                       .EnableTokenEndpointPassthrough();
+
+                    options.DisableAccessTokenEncryption();
+
+                    options.UseDataProtection()
+                       .PreferDefaultAccessTokenFormat()
+                       .PreferDefaultAuthorizationCodeFormat()
+                       .PreferDefaultDeviceCodeFormat()
+                       .PreferDefaultRefreshTokenFormat()
+                       .PreferDefaultUserCodeFormat();
+                })
+                .AddValidation(options =>
+                {
+                    // Import the configuration from the local OpenIddict server instance.
+                    options.UseLocalServer();
+
+                    // Register the ASP.NET Core host.
+                    options.UseAspNetCore();
                 });
 
             JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
             JwtSecurityTokenHandler.DefaultOutboundClaimTypeMap.Clear();
+
             services.AddAuthentication(x =>
             {
                 x.DefaultAuthenticateScheme = OpenIddictConstants.Schemes.Bearer;
                 x.DefaultChallengeScheme = OpenIddictConstants.Schemes.Bearer;
+                x.DefaultSignInScheme = OpenIddictConstants.Schemes.Bearer;
             }).AddJwtBearer("Bearer", options =>
             {
                 options.Authority = options.Authority = authSettings.Authority;
@@ -88,7 +124,7 @@ namespace NHIABackendService
                     OnAuthenticationFailed = context =>
                     {
                         if (context.Exception.GetType() == typeof(SecurityTokenExpiredException))
-                            context.Response.Headers.Add("Token-Expired", "true");
+                            context.Response.Headers.Append("Token-Expired", "true");
                         return Task.CompletedTask;
                     }
                 };

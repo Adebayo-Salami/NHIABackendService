@@ -58,11 +58,11 @@ namespace NHIABackendService.Controllers
 
         [AllowAnonymous]
         [HttpPost("~/api/connect/token"), Produces("application/json")]
-        public async Task<IActionResult> Token(OpenIddictRequest request)
+        [Consumes("application/x-www-form-urlencoded")]
+        public async Task<IActionResult> Token([FromForm] OpenIddictRequest request)
         {
             try
             {
-                request.GrantType = "password";
                 if (request.IsPasswordGrantType())
                 {
                     var user = await _userManager.FindByEmailAsync(request.Username);
