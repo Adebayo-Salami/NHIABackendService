@@ -5,6 +5,7 @@ using NHIABackendService.Core.Collections;
 using NHIABackendService.Utility;
 using NHIABackendService.Services.Model;
 using NHIABackendService.Core.DataAccess.EfCore.Context;
+using NHIABackendService.Core.Permissions;
 
 #nullable disable
 

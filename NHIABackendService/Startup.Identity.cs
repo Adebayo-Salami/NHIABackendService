@@ -1,9 +1,9 @@
 ﻿using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using NHIABackendService.Core.Configuration;
 using NHIABackendService.Core.DataAccess.EfCore.Context;
@@ -71,7 +71,8 @@ namespace NHIABackendService
                         .SetRefreshTokenLifetime(TimeSpan.FromMinutes(120))
 #endif
                         .AddSigningCertificate(x509Certificate)
-                        .AddEncryptionCertificate(x509Certificate);
+                        .AddEncryptionCertificate(x509Certificate)
+                        .AddSigningKey(signingKey);
 
                     options.UseAspNetCore()
                        .EnableStatusCodePagesIntegration()
@@ -87,13 +88,15 @@ namespace NHIABackendService
                        .PreferDefaultDeviceCodeFormat()
                        .PreferDefaultRefreshTokenFormat()
                        .PreferDefaultUserCodeFormat();
+
                 })
                 .AddValidation(options =>
                 {
-                    // Import the configuration from the local OpenIddict server instance.
                     options.UseLocalServer();
-
-                    // Register the ASP.NET Core host.
+                    options.AddSigningCertificate(x509Certificate);
+                    options.AddEncryptionCertificate(x509Certificate);
+                    options.AddSigningKey(signingKey);
+                    options.UseSystemNetHttp();
                     options.UseAspNetCore();
                 });
 
@@ -107,7 +110,7 @@ namespace NHIABackendService
                 x.DefaultSignInScheme = OpenIddictConstants.Schemes.Bearer;
             }).AddJwtBearer("Bearer", options =>
             {
-                options.Authority = options.Authority = authSettings.Authority;
+                options.Authority = authSettings.Authority;
                 options.RequireHttpsMetadata = authSettings.RequireHttps;
 
                 options.TokenValidationParameters = new TokenValidationParameters
@@ -125,6 +128,20 @@ namespace NHIABackendService
                     {
                         if (context.Exception.GetType() == typeof(SecurityTokenExpiredException))
                             context.Response.Headers.Append("Token-Expired", "true");
+                        return Task.CompletedTask;
+                    },
+                    OnTokenValidated = context =>
+                    {
+                        var token = context.SecurityToken as JwtSecurityToken;
+                        if (token != null)
+                        {
+                            ClaimsIdentity identity = context.Principal.Identity as ClaimsIdentity;
+                            if (identity != null)
+                            {
+                                identity.AddClaim(new Claim("access_token", token.RawData));
+                            }
+                        }
+
                         return Task.CompletedTask;
                     }
                 };

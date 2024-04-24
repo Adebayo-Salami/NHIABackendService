@@ -15,6 +15,7 @@ using NHIABackendService.Core.Extensions;
 using OpenIddict.Server.AspNetCore;
 using OpenIddict.Core;
 using NHIABackendService.Core.Permissions;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace NHIABackendService.Controllers
 {
@@ -63,6 +64,7 @@ namespace NHIABackendService.Controllers
         {
             try
             {
+                request.GrantType = "password";
                 if (request.IsPasswordGrantType())
                 {
                     var user = await _userManager.FindByEmailAsync(request.Username);
